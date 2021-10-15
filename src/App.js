@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import AddressBanner from './components/AddressBanner/AddressBanner';
+import Navbar from './components/Navbar/Navbar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './pages/Home';
+import Inventory from './pages/Inventory';
+import Chuck from './pages/Chuck';
+import Finance from './pages/Finance';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Page>
+        <AddressBanner />
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/inventory" component={Inventory} />
+          <Route path="/chuck" component={Chuck} />
+          <Route path="/finance" component={Finance} />
+        </Switch>
+      </Page>
+    </Router>
   );
 }
 
 export default App;
+
+const Page = styled.div`
+  background-color: whitesmoke;
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+`;
