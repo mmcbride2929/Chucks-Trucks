@@ -8,9 +8,9 @@ const Budget = () => {
         <LeftContent>
           <h3>Chuck's Truck of the Week</h3>
           {/* need onclick to cars url */}
-          <imgContainer>
+          <ImgContainer>
             <img src={showCar} alt="Ford Truck" />
-          </imgContainer>
+          </ImgContainer>
           <TextContainer>
             <h4>
               Drive this off the lot... <span>TODAY!</span>
@@ -94,7 +94,7 @@ const LeftContent = styled.div`
   }
 `;
 
-const imgContainer = styled.div`
+const ImgContainer = styled.div`
   background-color: whitesmoke;
   padding: 400px 100px;
 `;

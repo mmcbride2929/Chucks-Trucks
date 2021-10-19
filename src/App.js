@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Inventory from './pages/Inventory';
 import Chuck from './pages/Chuck';
 import Finance from './pages/Finance';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/chuck" component={Chuck} />
           <Route path="/finance" component={Finance} />
         </Switch>
+        <Footer />
       </Page>
     </Router>
   );
@@ -29,6 +31,6 @@ export default App;
 const Page = styled.div`
   background-color: whitesmoke;
   max-width: 1200px;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
 `;

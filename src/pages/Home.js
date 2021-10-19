@@ -10,7 +10,6 @@ const Home = () => {
       <Sale />
       <Budget />
       <Reviews />
-      <Footer />
     </body>
   );
 };
