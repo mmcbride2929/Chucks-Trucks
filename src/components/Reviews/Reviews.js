@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import manAvi from '../../photos/man.jpg';
 import girlAvi from '../../photos/girl.jpeg';
 import StarIcon from '@material-ui/icons/Star';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 const Reviews = () => {
   return (
@@ -14,13 +13,13 @@ const Reviews = () => {
         </AvatarWrapper>
         <ReviewWrapper>
           <Row>
-            <h5>I should have read the warranty</h5>
+            <h5>I should have read the warranty..</h5>
             <span>
+              <StarIcon className="gold" />
               <StarIcon />
               <StarIcon />
-              <StarBorderIcon />
-              <StarBorderIcon />
-              <StarBorderIcon />
+              <StarIcon />
+              <StarIcon />
             </span>
           </Row>
           <h6>
@@ -38,16 +37,16 @@ const Reviews = () => {
           <Row>
             <h5>Didn't work out.</h5>
             <span>
+              <StarIcon className="gold" />
+              <StarIcon className="gold" />
               <StarIcon />
               <StarIcon />
               <StarIcon />
-              <StarBorderIcon />
-              <StarBorderIcon />
             </span>
           </Row>
           <h6>
             "The owner was nice but nothing caught our eye. We came here
-            thinking it was a dealership but this is a junk-yard."
+            thinking it was a dealership but it was a junk-yard."
           </h6>
         </ReviewWrapper>
       </ReviewContainer>
@@ -114,8 +113,14 @@ const ReviewWrapper = styled.div`
     margin-bottom: 20px;
   }
 
-  span {
-    font-size: 0.5rem;
+  .MuiSvgIcon-root {
+    margin-top: 5px;
+    font-size: 1.2rem;
+    color: #cecece;
+  }
+
+  .gold {
+    color: gold;
   }
 
   h5 {

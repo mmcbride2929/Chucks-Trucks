@@ -7,7 +7,7 @@ const Budget = () => {
       <ContentWrapper>
         <LeftContent>
           <h3>Chuck's Truck of the Week</h3>
-          {/* need onclick to cars url */}
+          {/* need onclick to car's url */}
           <ImgContainer>
             <img src={showCar} alt="Ford Truck" />
           </ImgContainer>
@@ -44,7 +44,7 @@ const Budget = () => {
 export default Budget;
 
 const Section = styled.div`
-  height: 350px;
+  height: 375px;
   text-align: center;
   background-color: whitesmoke;
 `;
@@ -52,27 +52,25 @@ const Section = styled.div`
 const ContentWrapper = styled.div`
   display: flex;
   align-items: center;
+  height: 100%;
 `;
 
 const LeftContent = styled.div`
   flex: 0.5;
-  height: 230px;
-
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   h3 {
-    margin-top: 88px;
-    padding: 30px;
-    font-size: 1.4em;
+    padding: 10px;
+    font-size: 1.5em;
     text-transform: uppercase;
   }
 
   h4 {
     font-size: 1rem;
-    width: 250px;
     font-weight: 500;
   }
 
@@ -86,24 +84,27 @@ const LeftContent = styled.div`
   }
 
   img {
-    width: 250px;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-      rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    margin-left: 20px;
-    border-radius: 2px;
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+    max-height: 325px;
+    width: auto;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 4px 5px;
   }
 `;
 
 const ImgContainer = styled.div`
   background-color: whitesmoke;
-  padding: 400px 100px;
+  padding: 0px 10px;
 `;
 
 const TextContainer = styled.div``;
 
 const RightContent = styled.div`
   flex: 0.5;
-  height: 230px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,7 +112,8 @@ const RightContent = styled.div`
   h2 {
     font-size: 1.6rem;
     text-transform: uppercase;
-    padding: 25px;
+    padding: 20px;
+    margin-top: 15px;
     color: #1a1a1a;
   }
 

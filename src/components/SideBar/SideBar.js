@@ -1,6 +1,9 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 const SideBar = () => {
+  const [Sticky, setSticky] = useState(false);
+
   return (
     <SideBarContainer>
       <h1>INVENTORY</h1>
