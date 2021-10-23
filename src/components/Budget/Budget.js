@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import showCar from '../../photos/lg-cynder-blocks.JPG';
+import showCar from '../../photos/lg-cynder-blocks.jpg';
 
 const Budget = () => {
   return (
@@ -123,7 +123,6 @@ const RightContent = styled.div`
     font-weight: 500;
     background-color: #bc0607;
     color: white;
-    border-radius: 10px 10px 0px 0px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
       rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   }
@@ -131,7 +130,6 @@ const RightContent = styled.div`
   form {
     background-color: #e0e0e0;
     padding: 40px 75px;
-    border-radius: 0 0 10px 10px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
       rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   }

@@ -38,7 +38,6 @@ const Container = styled.div`
 
 const TopContent = styled.div`
   text-align: center;
-
   padding: 20px 0;
 
   img {

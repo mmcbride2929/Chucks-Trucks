@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import showCar from '../../photos/lg-cynder-blocks.JPG';
+import showCar from '../../photos/lg-cynder-blocks.jpg';
 
 const Ad = () => {
   return (
