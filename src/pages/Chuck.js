@@ -59,6 +59,7 @@ const ContentContainer = styled.div`
   background-color: white;
   margin: 100px auto;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
+  border-radius: 4px;
 
   h1 {
     text-align: center;

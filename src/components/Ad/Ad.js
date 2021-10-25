@@ -30,6 +30,7 @@ export default Ad;
 
 const AdInfo = styled.div`
   h3 {
+    text-transform: uppercase;
     margin: 5px;
   }
 `;
@@ -58,7 +59,7 @@ const TextContainer = styled.div`
 
   h2 {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 0.4px;
     background-color: #bc0607;
     color: whitesmoke;

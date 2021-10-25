@@ -19,7 +19,9 @@ const Application = () => {
                 <input type="text" id="employer" />
 
                 <label htmlFor="income">Annual Income</label>
-                <input type="text" id="income" />
+                <div className="dollar">
+                  <input type="text" id="income" />
+                </div>
               </LeftContainer>
             </VWrapper>
             <VWrapper>
@@ -69,14 +71,14 @@ const FormContainer = styled.div`
   height: 100%;
   width: 100%;
   background-color: white;
-  box-shadow: rgba(28, 30, 31, 0.3) 2px 2px 4px 0px;
+
   display: flex;
   align-items: center;
   flex-direction: column;
 
   h1 {
     font-family: 'ZCOOL KuaiLe', cursive;
-    margin-top: 50px;
+    margin-top: 35px;
     padding: 2px;
     font-size: 1.3rem;
     font-weight: bold;
@@ -97,8 +99,10 @@ const FormContainer = styled.div`
 
     input,
     select {
+      font-size: 0.9rem;
       margin-top: 7px;
       width: 225px;
+      padding-left: 3px;
       margin-bottom: 25px;
       border: none;
       outline: none;
@@ -151,6 +155,20 @@ const LeftContainer = styled.div`
   input {
     background-color: whitesmoke;
   }
+
+  .dollar {
+    display: inline-block;
+    position: relative;
+  }
+  .dollar input {
+    padding-left: 15px;
+  }
+  .dollar:before {
+    position: absolute;
+    content: '$';
+    left: 5px;
+    top: 3px;
+  }
 `;
 
 const RightContainer = styled.div`
@@ -163,7 +181,7 @@ const RightContainer = styled.div`
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
 
   .option {
-    width: 75px;
+    width: 90px;
     background-color: whitesmoke;
   }
 
@@ -175,6 +193,20 @@ const RightContainer = styled.div`
 
   label {
     font-weight: 500;
+  }
+
+  .dollar {
+    display: inline-block;
+    position: relative;
+  }
+  .dollar input {
+    padding-left: 15px;
+  }
+  .dollar:before {
+    position: absolute;
+    content: '$';
+    left: 5px;
+    top: 3px;
   }
 `;
 

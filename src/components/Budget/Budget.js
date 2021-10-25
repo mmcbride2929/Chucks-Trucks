@@ -1,24 +1,18 @@
 import styled from 'styled-components';
 import showCar from '../../photos/lg-cynder-blocks.jpg';
+import Ad from '../Ad/Ad';
 
 const Budget = () => {
   return (
     <Section>
       <ContentWrapper>
         <LeftContent>
-          <h3>Chuck's Truck of the Week</h3>
-          {/* need onclick to car's url */}
-          <ImgContainer>
-            <img src={showCar} alt="Ford Truck" />
-          </ImgContainer>
-          <TextContainer>
-            <h4>
-              Drive this off the lot... <span>TODAY!</span>
-            </h4>
-            <p>$36,995</p>
-          </TextContainer>
+          <SaleBackground>
+            <Ad />
+          </SaleBackground>
         </LeftContent>
         <RightContent>
+          {/* <FormBackground> */}
           <h2>Whats your budget?</h2>
           <h4>Enter your budget & we will do the rest!</h4>
           <form>
@@ -35,6 +29,7 @@ const Budget = () => {
               <input type="submit" value="SHOP" />
             </Wrapper>
           </form>
+          {/* </FormBackground> */}
         </RightContent>
       </ContentWrapper>
     </Section>
@@ -44,7 +39,7 @@ const Budget = () => {
 export default Budget;
 
 const Section = styled.div`
-  height: 375px;
+  height: 500px;
   text-align: center;
   background-color: whitesmoke;
 `;
@@ -63,22 +58,6 @@ const LeftContent = styled.div`
   justify-content: center;
   align-items: center;
 
-  h3 {
-    padding: 10px;
-    font-size: 1.5em;
-    text-transform: uppercase;
-  }
-
-  h4 {
-    font-size: 1rem;
-    font-weight: 500;
-  }
-
-  p {
-    color: #bc0607;
-    font-weight: 500;
-  }
-
   span {
     font-weight: 700;
   }
@@ -95,12 +74,17 @@ const LeftContent = styled.div`
   }
 `;
 
-const ImgContainer = styled.div`
-  background-color: whitesmoke;
-  padding: 0px 10px;
+const SaleBackground = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 65%;
+  height: 85%;
+  background-color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 2px;
 `;
-
-const TextContainer = styled.div``;
 
 const RightContent = styled.div`
   flex: 0.5;
@@ -108,16 +92,18 @@ const RightContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   h2 {
     font-size: 1.6rem;
     text-transform: uppercase;
-    padding: 20px;
-    margin-top: 15px;
+    margin-bottom: 15px;
     color: #1a1a1a;
   }
 
   h4 {
+    max-width: 351px;
+    max-height: 300px;
     font-size: 1rem;
     padding: 10px 15px;
     font-weight: 500;
@@ -128,6 +114,8 @@ const RightContent = styled.div`
   }
 
   form {
+    max-width: 350px;
+    max-height: 200px;
     background-color: #e0e0e0;
     padding: 40px 75px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
@@ -142,6 +130,19 @@ const RightContent = styled.div`
     }
   }
 `;
+
+// const FormBackground = styled.div`
+//   width: 65%;
+//   height: 85%;
+//   background-color: white;
+//   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+//     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   border-radius: 5px;
+// `;
 
 const Wrapper = styled.div`
   display: flex;
