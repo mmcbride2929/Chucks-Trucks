@@ -2,76 +2,66 @@ import styled from 'styled-components';
 
 const Application = () => {
   return (
-    <FormWrapper>
-      <FormContainer>
-        <h1>Chuck's Trucks</h1>
-        <h2>Credit Application</h2>
-        <form action="submit" className="finance">
-          <HWrapper>
-            <VWrapper>
-              <h3>Applicant Info</h3>
-              <LeftContainer>
-                <label htmlFor="name">Full Name</label>
-                <input type="text" id="name" />
-                <label htmlFor="email">Email</label>
-                <input type="text" id="email" />
-                <label htmlFor="employer">Employer / Company Name</label>
-                <input type="text" id="employer" />
+    <FormContainer>
+      <h1>Chuck's Trucks</h1>
+      <h2>Credit Application</h2>
+      <form action="submit" className="finance">
+        <HWrapper>
+          <VWrapper>
+            <h3>Applicant Info</h3>
+            <LeftContainer>
+              <label htmlFor="name">Full Name</label>
+              <input type="text" id="name" />
+              <label htmlFor="email">Email</label>
+              <input type="text" id="email" />
+              <label htmlFor="employer">Employer / Company Name</label>
+              <input type="text" id="employer" />
 
-                <label htmlFor="income">Annual Income</label>
-                <div className="dollar">
-                  <input type="text" id="income" />
-                </div>
-              </LeftContainer>
-            </VWrapper>
-            <VWrapper>
-              <h3>Loan Details</h3>
-              <RightContainer>
-                <label htmlFor="down-payment">Down-Payment</label>
-                <div className="dollar">
-                  <input type="text" id="down-payment" />
-                </div>
-                <label htmlFor="credit">Credit Score</label>
-                <input id="credit" type="text" />
-                <label htmlFor="budget" className="budget">
-                  Budget
-                </label>
-                <select name="budget" id="budet" className="option">
-                  <option value="5000">$5,000</option>
-                  <option value="10000">$10,000</option>
-                  <option value="25000">$25,000</option>
-                  <option value="50000">$50,000</option>
-                </select>
-                <RadioContainer>
-                  <StyledRadio type="radio" value="buy" name="buy" />
-                  <span>Buy</span>
-                  <StyledRadio type="radio" value="lease" name="lease" />
-                  <span>Lease</span>
-                </RadioContainer>
-              </RightContainer>
-            </VWrapper>
-          </HWrapper>
-        </form>
-        <input type="submit" form="finance" className="submit" />
-      </FormContainer>
-    </FormWrapper>
+              <label htmlFor="income">Annual Income</label>
+              <div className="dollar">
+                <input type="text" id="income" />
+              </div>
+            </LeftContainer>
+          </VWrapper>
+          <VWrapper>
+            <h3>Loan Details</h3>
+            <RightContainer>
+              <label htmlFor="down-payment">Down-Payment</label>
+              <div className="dollar">
+                <input type="text" id="down-payment" />
+              </div>
+              <label htmlFor="credit">Credit Score</label>
+              <input id="credit" type="text" />
+              <label htmlFor="budget" className="budget">
+                Budget
+              </label>
+              <select name="budget" id="budet" className="option">
+                <option value="5000">$5,000</option>
+                <option value="10000">$10,000</option>
+                <option value="25000">$25,000</option>
+                <option value="50000">$50,000</option>
+              </select>
+              <RadioContainer>
+                <StyledRadio type="radio" value="buy" name="buy" />
+                <span>Buy</span>
+                <StyledRadio type="radio" value="lease" name="lease" />
+                <span>Lease</span>
+              </RadioContainer>
+            </RightContainer>
+          </VWrapper>
+        </HWrapper>
+      </form>
+      <input type="submit" form="finance" className="submit" />
+    </FormContainer>
   );
 };
 
 export default Application;
 
-const FormWrapper = styled.div`
-  background-color: whitesmoke;
-  height: 100%;
-  display: flex;
-  align-items: center;
-`;
-
 const FormContainer = styled.div`
   height: 100%;
   width: 100%;
   background-color: white;
-
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -129,6 +119,7 @@ const FormContainer = styled.div`
     width: 100px;
     padding: 10px 0px;
     margin-top: 50px;
+    margin-bottom: 20px;
     border-radius: 2px;
     border: none;
 
@@ -169,6 +160,24 @@ const LeftContainer = styled.div`
     left: 5px;
     top: 3px;
   }
+
+  @media (max-width: 925px) {
+    width: 350px;
+    padding: 20px 60px;
+  }
+
+  @media (max-width: 850px) {
+    width: 400px;
+    padding: 20px 80px;
+    margin-bottom: 25px;
+  }
+
+  @media (max-width: 425px) {
+    width: 300px;
+    padding: 20px 50px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+  }
 `;
 
 const RightContainer = styled.div`
@@ -208,6 +217,19 @@ const RightContainer = styled.div`
     left: 5px;
     top: 3px;
   }
+
+  @media (max-width: 925px) {
+    width: 350px;
+  }
+
+  @media (max-width: 850px) {
+    width: 400px;
+  }
+
+  @media (max-width: 425px) {
+    width: 300px;
+    padding: 20px 50px;
+  }
 `;
 
 const RadioContainer = styled.div`
@@ -237,12 +259,21 @@ const VWrapper = styled.div`
     color: whitesmoke;
     letter-spacing: 1px;
     margin-top: 10px;
+
+    @media (max-width: 425px) {
+      width: 301px;
+      margin: 0 auto;
+    }
   }
 `;
 
 const HWrapper = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+  }
 `;
 
 const StyledRadio = styled.input`

@@ -38,6 +38,10 @@ const FooterContainer = styled.div`
     color: #bc0607;
     text-decoration: underline;
   }
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
 `;
 
 const NavWrapper = styled.div``;
@@ -66,5 +70,9 @@ const InfoWrapper = styled.div`
     :hover {
       color: #bc0607;
     }
+  }
+
+  @media (max-width: 650px) {
+    display: none;
   }
 `;

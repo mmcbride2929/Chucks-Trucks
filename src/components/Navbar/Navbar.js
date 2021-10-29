@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import DehazeIcon from '@material-ui/icons//Dehaze';
 
 const Navbar = () => {
   return (
@@ -13,6 +14,7 @@ const Navbar = () => {
       </LeftWrapper>
       <RightWrapper>
         <ContentWrapper>
+          <DehazeIcon className="toggle active" />
           <StyledLink to="/inventory">
             <h3>Inventory</h3>
           </StyledLink>
@@ -45,6 +47,10 @@ const LeftWrapper = styled.div`
   display: flex;
   flex: 0.4;
   margin-left: 15px;
+
+  @media (max-width: 500px) {
+    flex: 0.6;
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -62,6 +68,28 @@ const ContentWrapper = styled.div`
       cursor: pointer;
     }
   }
+
+  .toggle {
+    margin-right: 10px;
+    font-size: 1.7rem;
+    color: #4d4d4d;
+
+    :hover {
+      cursor: pointer;
+      color: black;
+    }
+  }
+
+  @media (max-width: 650px) {
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 1.3rem;
+      padding: 20px 0;
+    }
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -76,6 +104,23 @@ const RightWrapper = styled.div`
   flex: 0.6;
   justify-content: flex-end;
   margin-right: 15px;
+
+  @media (min-width: 651px) {
+    .toggle {
+      display: none;
+    }
+  }
+
+  @media (max-width: 650px) {
+    h3 {
+      display: none;
+    }
+  }
+
+  @media (max-width: 500px) {
+    flex: 0.4;
+    margin-right: 0px;
+  }
 
   h3 {
     margin-left: 20px;

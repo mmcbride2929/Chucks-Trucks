@@ -29,8 +29,12 @@ function App() {
 export default App;
 
 const Page = styled.div`
-  background-color: whitesmoke;
+  background-color: white;
+  width: 100%;
   max-width: 1200px;
   height: 100%;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+  }
 `;

@@ -15,7 +15,7 @@ export default Finance;
 
 const StyledContainer = styled.div`
   background-color: whitesmoke;
-  height: 900px;
+  height: auto;
   display: flex;
   flex-direction: column;
 `;

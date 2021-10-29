@@ -6,7 +6,7 @@ const FinanaceHeader = () => {
     <Header>
       <h1>Finance</h1>
       <h4>We're here to help.</h4>
-      <p>
+      <p className="description">
         Applying for a loan through Chuck's Trucks is quick and easy. Just
         answer a few questions and we'll get back to you with a competitive rate
         INSTANTLY!
@@ -45,11 +45,11 @@ const Header = styled.header`
   }
 
   h5 {
-    font-size: 0.6rem;
+    font-size: 0.5rem;
     font-weight: 700;
     letter-spacing: 0.3px;
-    margin: 3px;
-    margin-top: 20px;
+    margin: 2px;
+    margin-top: 5px;
     text-transform: uppercase;
   }
 
@@ -57,5 +57,30 @@ const Header = styled.header`
     padding: 0 200px;
     margin: 5px;
     font-weight: 500;
+  }
+
+  @media (max-width: 1100px) {
+    p {
+      padding: 0 100px;
+    }
+  }
+
+  @media (max-width: 950px) {
+    p {
+      padding: 0 50px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    p {
+      font-size: 0.9rem;
+      padding: 0 30px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    p {
+      font-size: 0.8rem;
+    }
   }
 `;

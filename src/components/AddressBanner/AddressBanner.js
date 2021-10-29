@@ -10,12 +10,12 @@ const AddressBanner = () => {
     <Banner>
       <LeftWrapper>
         <ContentWrapper>
-          <LocationOnIcon />
-          <p>123 Big Truck BLVD Cleveland, OH</p>
+          <LocationOnIcon className="address" />
+          <p className="address">123 Big Truck BLVD Cleveland, OH</p>
         </ContentWrapper>
         <ContentWrapper>
           <LocalPhoneIcon />
-          <p>(555) - BUY - TRUX</p>
+          <p className="phone-number">(555) - BUY - TRUX</p>
         </ContentWrapper>
       </LeftWrapper>
       <RightWrapper>
@@ -51,22 +51,56 @@ const LeftWrapper = styled.div`
   flex: 0.6;
   margin-left: 15px;
 
+  @media (max-width: 500px) {
+    margin-left: 0px;
+    flex: 0.6;
+  }
+
   p {
     font-size: 1.1rem;
     font-weight: 500;
+    margin-right: 7px;
   }
   .MuiSvgIcon-root {
     margin: auto 0;
     padding-top: 2px;
     margin-right: 5px;
     font-size: 1.2rem;
+    margin-left: 0;
   }
 `;
 
 const ContentWrapper = styled.div`
   display: flex;
-  margin-right: 25px;
+  margin-left: 7px;
   align-items: center;
+
+  @media (max-width: 800px) {
+    .phone-number,
+    .address {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 675px) {
+    .address,
+    .phone-number {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .address {
+      display: none;
+    }
+
+    .phone-number {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+  }
 `;
 
 const RightWrapper = styled.div`

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import hero from '../../photos/home-hero.jpg';
-
 import { Link } from 'react-router-dom';
 
 const Sale = () => {
@@ -19,7 +18,6 @@ const Sale = () => {
 
 export default Sale;
 
-// Sale content
 const Header = styled.header`
   width: 100%;
   height: 40vh;
@@ -36,9 +34,6 @@ const Header = styled.header`
     margin-top: 80px;
   }
 
-  h4 {
-  }
-
   h1 {
     font-size: 2.7rem;
   }
@@ -53,11 +48,57 @@ const Header = styled.header`
     width: 100%;
   }
 
-  P {
+  p {
     font-size: 10px;
     position: absolute;
     bottom: 2%;
     width: 100%;
+  }
+
+  @media (max-width: 1050px) {
+    height: 40vh;
+  }
+
+  @media (max-width: 768px) {
+    height: 34vh;
+
+    h1 {
+      font-size: 1.9rem;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      margin-top: 25px;
+    }
+
+    h3 {
+      font-size: 0.9rem;
+    }
+  }
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 1.3rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    h3 {
+      font-size: 0.7rem;
+    }
+
+    h4 {
+      font-size: 0.7rem;
+    }
+
+    h6 {
+      margin-bottom: 5px;
+    }
+  }
+
+  @media (min-height: 400px) {
+    height: 40vh;
   }
 `;
 
@@ -73,11 +114,16 @@ const Button = styled(Link)`
   width: 110px;
   padding: 9px 2px;
   border-radius: 2px;
-  margin: 20px auto 0;
+  margin: 20px auto;
 
   :hover {
     cursor: pointer;
     color: #1b1717;
     background-color: whitesmoke;
+  }
+
+  @media (max-width: 500px) {
+    margin-bottom: 0;
+    margin-top: 35px;
   }
 `;

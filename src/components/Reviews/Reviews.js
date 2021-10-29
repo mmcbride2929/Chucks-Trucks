@@ -13,7 +13,7 @@ const Reviews = () => {
         </AvatarWrapper>
         <ReviewWrapper>
           <Row>
-            <h5>I should have read the warranty..</h5>
+            <h5>READ THE WARRANTY</h5>
             <span>
               <StarIcon className="gold" />
               <StarIcon />
@@ -57,12 +57,13 @@ const Reviews = () => {
 export default Reviews;
 
 const Section = styled.div`
-  height: 500px;
+  height: auto;
   background-color: #bc0607;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 30px 5px;
 `;
 
 const ReviewContainer = styled.div`
@@ -74,6 +75,20 @@ const ReviewContainer = styled.div`
   border-radius: 5px;
   margin: 30px;
   display: flex;
+
+  @media (max-width: 768px) {
+    width: 85%;
+  }
+
+  @media (max-width: 500px) {
+    width: 70%;
+    height: 400px;
+    flex-direction: column;
+  }
+
+  @media (max-width: 500px) {
+    height: 350px;
+  }
 `;
 
 const AvatarWrapper = styled.div`
@@ -97,7 +112,6 @@ const Avatar = styled.img`
 `;
 
 const ReviewWrapper = styled.div`
-  width: 75%;
   text-align: center;
   flex: 0.7;
   display: flex;
@@ -128,10 +142,47 @@ const ReviewWrapper = styled.div`
     font-weight: 900;
     margin: 20px;
   }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+    margin-right: 10px;
+
+    .MuiSvgIcon-root {
+      font-size: 1rem;
+    }
+
+    h5 {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    padding: 5px;
+    margin: 15px auto;
+    width: 90%;
+
+    h5 {
+      margin: 5px;
+    }
+
+    h6 {
+      margin-top: 25px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    margin: 10px auto;
+    margin-top: 10px;
+  }
 `;
 
 const Row = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* review title + stars to column */
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
 `;

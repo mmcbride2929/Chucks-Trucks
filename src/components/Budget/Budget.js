@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import showCar from '../../photos/lg-cynder-blocks.jpg';
 import Ad from '../Ad/Ad';
 
 const Budget = () => {
@@ -39,7 +38,9 @@ const Budget = () => {
 export default Budget;
 
 const Section = styled.div`
-  height: 500px;
+  height: auto;
+  width: 100%;
+  padding: 40px;
   text-align: center;
   background-color: whitesmoke;
 `;
@@ -48,6 +49,10 @@ const ContentWrapper = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const LeftContent = styled.div`
@@ -57,6 +62,10 @@ const LeftContent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .sale-price {
+    margin: 5px;
+  }
 
   span {
     font-weight: 700;
@@ -72,18 +81,63 @@ const LeftContent = styled.div`
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 4px 5px;
   }
+  @media (max-width: 1150px) {
+    img {
+      max-width: 250px;
+      max-height: 200px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    img {
+      max-width: 225px;
+      max-height: 175px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 1rem;
+    }
+    img {
+      margin-top: 10px;
+      max-width: 300px;
+      max-height: 250px;
+    }
+
+    h4 {
+      margin-top: 10px;
+    }
+  }
+
+  @media (max-width: 550px) {
+    img {
+      max-width: 275px;
+      max-height: 225px;
+    }
+  }
+  @media (max-width: 400px) {
+    .sale-price {
+      display: none;
+    }
+  }
 `;
 
 const SaleBackground = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 65%;
-  height: 85%;
+  width: 60%;
+  min-width: 275px;
+  padding: 15px;
   background-color: white;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   border-radius: 2px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const RightContent = styled.div`
@@ -93,6 +147,19 @@ const RightContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 50px;
+  }
+
+  @media (max-width: 500px) {
+    padding: 25px;
+
+    h4,
+    form {
+      width: 85%;
+    }
+  }
 
   h2 {
     font-size: 1.6rem;
@@ -131,27 +198,18 @@ const RightContent = styled.div`
   }
 `;
 
-// const FormBackground = styled.div`
-//   width: 65%;
-//   height: 85%;
-//   background-color: white;
-//   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-//     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   border-radius: 5px;
-// `;
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
 
+  @media (max-width: 400px) {
+    justify-content: center;
+  }
+
   label {
     font-weight: 700;
     padding: 5px;
-    margin: 0 15px 0;
+    margin: 0 15px;
   }
 
   input {

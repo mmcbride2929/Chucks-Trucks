@@ -34,6 +34,14 @@ const Container = styled.div`
   box-shadow: rgba(28, 30, 31, 0.3) 2px 2px 4px 0px;
   background-color: white;
   border-radius: 5px;
+
+  @media (max-width: 675px) {
+    width: 70%;
+  }
+
+  @media (max-width: 550px) {
+    width: 80%;
+  }
 `;
 
 const TopContent = styled.div`
@@ -56,6 +64,54 @@ const TopContent = styled.div`
 
   h3 {
     margin: 3px;
+  }
+
+  @media (max-width: 1050px) {
+    h5 {
+      font-size: 1rem;
+    }
+
+    img {
+      max-width: 380px;
+      max-height: 305px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    img {
+      max-width: 300px;
+      max-height: 325px;
+    }
+  }
+
+  /* Truck image */
+  @media (max-width: 768px) {
+    img {
+      max-width: 275px;
+      max-height: 300px;
+    }
+
+    h5 {
+      padding: 10px 20px;
+    }
+  }
+
+  @media (max-width: 675px) {
+    img {
+      max-width: 350px;
+      max-height: 375px;
+    }
+
+    h5 {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    img {
+      max-width: 275px;
+      max-height: 300px;
+    }
   }
 `;
 

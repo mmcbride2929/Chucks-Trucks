@@ -51,12 +51,13 @@ const Chuck = () => {
 export default Chuck;
 
 const TestContainer = styled.div`
-  height: 75vh;
+  height: auto;
 `;
+
 const ContentContainer = styled.div`
   width: 80%;
   height: 600px;
-  background-color: white;
+  background-color: whitesmoke;
   margin: 100px auto;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
   border-radius: 4px;
@@ -65,6 +66,23 @@ const ContentContainer = styled.div`
     text-align: center;
     font-size: 2.3rem;
     padding: 35px;
+
+    @media (max-width: 850px) {
+      padding: 0;
+      padding-top: 20px;
+    }
+  }
+
+  @media (max-width: 950px) {
+    margin: 40px auto;
+    height: auto;
+  }
+
+  @media (max-width: 850px) {
+    width: 70%;
+  }
+
+  @media (max-width: 650px) {
   }
 `;
 
@@ -85,7 +103,7 @@ const LeftContainer = styled.div`
     font-size: 1.05rem;
     margin-bottom: 10px;
     padding-bottom: 3px;
-    background-color: whitesmoke;
+    background-color: white;
   }
 
   p {
@@ -98,12 +116,41 @@ const LeftContainer = styled.div`
     padding: 0px;
     opacity: 0.75;
   }
+
+  @media (max-width: 850px) {
+    h2,
+    h4 {
+      width: 70%;
+      margin: 0 auto;
+    }
+
+    h4 {
+      margin-bottom: 30px;
+    }
+
+    p,
+    .company-name {
+      padding: 5px 30px;
+    }
+
+    .company-name {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    h2,
+    h4 {
+      width: 250px;
+    }
+  }
 `;
 
 const Row = styled.div`
   margin-top: 30px;
   display: flex;
   align-items: center;
+
   p {
     font-size: 1.05rem;
     letter-spacing: 0.75px;
@@ -123,6 +170,11 @@ const Row = styled.div`
     margin-left: 6px;
     font-size: 1rem;
   }
+  @media (max-width: 850px) {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 const RightContainer = styled.div`
@@ -139,6 +191,16 @@ const RightContainer = styled.div`
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+    @media (max-width: 950px) {
+      max-width: 280px;
+      max-height: 305px;
+    }
+
+    @media (max-width: 850px) {
+      max-width: 330px;
+      max-height: 355px;
+    }
   }
   p {
     text-align: center;
@@ -154,4 +216,8 @@ const RightContainer = styled.div`
 const HWrapper = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 850px) {
+    flex-direction: column-reverse;
+  }
 `;

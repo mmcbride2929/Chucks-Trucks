@@ -14,7 +14,7 @@ const Ad = () => {
           Drive this <span>F-150</span> off the lot... <span>TODAY!</span>
         </p>
 
-        <h4>$36,995 </h4>
+        <h4 className="sale-price">$36,995 </h4>
         <PromoCode>
           <span className="price">$36,900</span> With promo code:
           <span className="promo">3WHEELS</span>
