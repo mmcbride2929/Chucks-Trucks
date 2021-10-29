@@ -30,7 +30,7 @@ const Header = styled.header`
   padding: 5px 30px;
   margin: 0 auto;
   text-align: center;
-  box-shadow: inset 80px 70px 220px #000000, inset -80px -70px 220px #000000;
+  box-shadow: inset 50px 50px 180px #000000, inset -50px -50px 180px #000000;
   letter-spacing: 0.5px;
 
   h1 {
@@ -78,9 +78,24 @@ const Header = styled.header`
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 500px) {
     p {
       font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    h4 {
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    p {
+      display: none;
+    }
+
+    h1 {
+      font-size: 1.8rem;
     }
   }
 `;

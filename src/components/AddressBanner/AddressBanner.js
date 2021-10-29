@@ -99,7 +99,10 @@ const ContentWrapper = styled.div`
     }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 350px) {
+    .phone-number {
+      font-size: 1rem;
+    }
   }
 `;
 

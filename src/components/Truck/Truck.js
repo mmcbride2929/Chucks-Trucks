@@ -8,7 +8,7 @@ const Truck = ({ truck }) => {
       <TopContent>
         <img src={require(`../../photos/${photo}`).default} />
         <Wrapper>
-          <h4>{year} </h4>
+          <h4 className="year">{year} </h4>
           <h3>{name} </h3>
 
           <p>- {miles} miles.</p>
@@ -108,9 +108,33 @@ const TopContent = styled.div`
   }
 
   @media (max-width: 500px) {
+    h3 {
+      font-size: 1rem;
+    }
+
+    h5 {
+      font-size: 0.8rem;
+    }
+
     img {
       max-width: 275px;
       max-height: 300px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    img {
+      max-width: 240px;
+      max-height: 265px;
+    }
+
+    .year,
+    h3 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.8rem;
     }
   }
 `;
@@ -122,7 +146,7 @@ const Wrapper = styled.div`
   text-align: center;
 
   h2 {
-    margin-left: 20px;
+    margin: 0 10px;
     font-size: 1rem;
     font-weight: 400;
     text-transform: uppercase;

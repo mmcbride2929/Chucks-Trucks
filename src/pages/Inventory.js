@@ -126,16 +126,16 @@ const AdWrapper = styled.div`
       max-width: 225px;
       max-height: 250px;
     }
+  }
 
-    @media (max-width: 768px) {
-      width: 100%;
-      height: 450px;
-      padding: 5px 20px;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 450px;
+    padding: 5px 20px;
 
-      img {
-        max-width: 275px;
-        max-height: 300px;
-      }
+    img {
+      max-width: 275px;
+      max-height: 300px;
     }
   }
 
@@ -166,13 +166,32 @@ const AdWrapper = styled.div`
       max-width: 300px;
       max-height: 325px;
     }
+  }
 
-    @media (max-width: 500px) {
-      padding: 10px 20px;
-      img {
-        max-width: 275px;
-        max-height: 300px;
-      }
+  @media (max-width: 500px) {
+    padding: 0px;
+    img {
+      max-width: 275px;
+      max-height: 300px;
+    }
+  }
+  @media (max-width: 375px) {
+    height: 425px;
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+
+    .sale-price {
+      margin: 10px;
+    }
+    img {
+      max-width: 240px;
+      max-height: 265px;
     }
   }
 `;

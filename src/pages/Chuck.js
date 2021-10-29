@@ -23,7 +23,7 @@ const Chuck = () => {
               Darryl who has promised to never change the company name.
             </p>
             <Row>
-              <p>2.2</p>
+              <p className="rating">2.2</p>
               <span>
                 <StarIcon className="gold" />
                 <StarIcon className="gold" />
@@ -82,7 +82,8 @@ const ContentContainer = styled.div`
     width: 70%;
   }
 
-  @media (max-width: 650px) {
+  @media (max-width: 550px) {
+    width: 85%;
   }
 `;
 
@@ -144,6 +145,38 @@ const LeftContainer = styled.div`
       width: 250px;
     }
   }
+
+  @media (max-width: 500px) {
+    h2,
+    h4 {
+      width: 250px;
+    }
+
+    p {
+      padding: 5px 10px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    p {
+      padding: 5px 5px;
+    }
+
+    .rating {
+      display: none;
+    }
+  }
+
+  @media (max-width: 350px) {
+    h2 {
+      font-size: 1.1rem;
+      width: 190px;
+    }
+    h4 {
+      font-size: 0.8rem;
+      width: 190px;
+    }
+  }
 `;
 
 const Row = styled.div`
@@ -200,6 +233,21 @@ const RightContainer = styled.div`
     @media (max-width: 850px) {
       max-width: 330px;
       max-height: 355px;
+    }
+
+    @media (max-width: 575px) {
+      max-width: 275px;
+      max-height: 300px;
+    }
+
+    @media (max-width: 500px) {
+      max-width: 225px;
+      max-height: 250px;
+    }
+
+    @media (max-width: 374px) {
+      max-width: 200px;
+      max-height: 225px;
     }
   }
   p {

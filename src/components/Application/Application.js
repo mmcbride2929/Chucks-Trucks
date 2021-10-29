@@ -178,6 +178,16 @@ const LeftContainer = styled.div`
     margin: 0 auto;
     margin-bottom: 25px;
   }
+
+  @media (max-width: 375px) {
+    padding: 20px 30px;
+    width: 255px;
+
+    #email,
+    #employer {
+      width: 200px;
+    }
+  }
 `;
 
 const RightContainer = styled.div`
@@ -230,6 +240,17 @@ const RightContainer = styled.div`
     width: 300px;
     padding: 20px 50px;
   }
+
+  @media (max-width: 375px) {
+    width: 255px;
+    padding: 20px 30px;
+
+    .budget,
+    .option {
+      margin: 5px auto;
+      margin-top: 0px;
+    }
+  }
 `;
 
 const RadioContainer = styled.div`
@@ -243,6 +264,10 @@ const RadioContainer = styled.div`
     margin: 5px;
     margin-top: 3px;
     margin-right: 25px;
+  }
+
+  @media (max-width: 375px) {
+    margin-top: 15px;
   }
 `;
 
@@ -261,8 +286,12 @@ const VWrapper = styled.div`
     margin-top: 10px;
 
     @media (max-width: 425px) {
-      width: 301px;
+      width: 300px;
       margin: 0 auto;
+    }
+
+    @media (max-width: 375px) {
+      width: 255px;
     }
   }
 `;

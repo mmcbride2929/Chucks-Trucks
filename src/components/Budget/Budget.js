@@ -121,6 +121,13 @@ const LeftContent = styled.div`
       display: none;
     }
   }
+
+  @media (max-width: 350px) {
+    img {
+      max-width: 250px;
+      max-height: 200px;
+    }
+  }
 `;
 
 const SaleBackground = styled.div`
@@ -147,19 +154,6 @@ const RightContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  @media (max-width: 768px) {
-    padding: 50px;
-  }
-
-  @media (max-width: 500px) {
-    padding: 25px;
-
-    h4,
-    form {
-      width: 85%;
-    }
-  }
 
   h2 {
     font-size: 1.6rem;
@@ -194,6 +188,18 @@ const RightContent = styled.div`
 
     :hover {
       cursor: pointer;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 50px;
+  }
+
+  @media (max-width: 500px) {
+    padding: 25px;
+    h4,
+    form {
+      width: 85%;
     }
   }
 `;
