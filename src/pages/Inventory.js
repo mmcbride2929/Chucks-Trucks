@@ -6,28 +6,134 @@ import SideBar from '../components/SideBar/SideBar';
 import Ad from '../components/Ad/Ad';
 
 const Inventory = () => {
-  const [inventory, setInventory] = useState([]);
+  // setting inventory, filters, and default sortBy
+  const [inventory, setInventory] = useState([]); // array of trucks
+  const [filterBySize, setFilterBySize] = useState([]);
+  const [sortBy, setSortBy] = useState('sortPrice'); //default sort by price
+  const [filterByCondition, setFilterByCondition] = useState([]);
+  const [reverseOrder, setReverseOrder] = useState(false);
 
+  // fetching inv from firebase and setting the inv state
   useEffect(() => {
     db.collection('trucks').onSnapshot((snapshot) => {
       setInventory(snapshot.docs.map((doc) => doc.data()));
     });
   }, []);
 
+  // cloning our inv arr so that we do not mutate it
+  const inventoryCopy = [...inventory];
+
   return (
     <InventoryContainer>
       <LeftContainer>
         <InvWrapper>
-          <SideBar />
+          <SideBar
+            setFilterBySize={setFilterBySize}
+            setSortBy={setSortBy}
+            setFilterByCondition={setFilterByCondition}
+            filterBySize={filterBySize}
+            sortBy={sortBy}
+            filterByCondition={filterByCondition}
+            setReverseOrder={setReverseOrder}
+          />
         </InvWrapper>
         <AdWrapper>
           <Ad />
         </AdWrapper>
       </LeftContainer>
       <RightContainer>
-        {inventory.map((truck, index) => {
-          return <Truck key={index} truck={truck} />;
-        })}
+        {/* displaying inventory */}
+
+        {/* default - all inventory */}
+        {!reverseOrder // if reverse is false, display default inv
+          ? filterBySize.length === 0 &&
+            filterByCondition.length === 0 &&
+            inventoryCopy
+              .sort((a, b) => a[sortBy] - b[sortBy])
+              .map((truck, index) => {
+                return <Truck key={index} truck={truck} />;
+              })
+          : filterBySize.length === 0 && // if reverse is true, reverse & display
+            filterByCondition.length === 0 &&
+            inventoryCopy
+              .sort((a, b) => a[sortBy] - b[sortBy])
+              .reverse()
+              .map((truck, index) => {
+                return <Truck key={index} truck={truck} />;
+              })}
+        {/* default - all inventory */}
+
+        {/* filter inv by size only */}
+        {!reverseOrder
+          ? filterBySize.length > 0 && // if filterBySize is populated..
+            filterByCondition.length === 0 &&
+            inventoryCopy
+              .filter((truck) => filterBySize.includes(truck.size))
+              .sort((a, b) => a[sortBy] - b[sortBy])
+              .map((truck, index) => {
+                return <Truck key={index} truck={truck} />;
+              })
+          : filterBySize.length > 0 &&
+            filterByCondition.length === 0 &&
+            reverseOrder &&
+            inventoryCopy
+              .filter((truck) => filterBySize.includes(truck.size))
+              .sort((a, b) => a[sortBy] - b[sortBy])
+              .reverse()
+              .map((truck, index) => {
+                return <Truck key={index} truck={truck} />;
+              })}
+        {/* filter inv by size only */}
+
+        {/* filter inv by condition only */}
+        {!reverseOrder
+          ? filterByCondition.length > 0 &&
+            filterBySize.length === 0 &&
+            inventoryCopy
+              .filter((truck) => filterByCondition.includes(truck.working))
+              .map((truck, index) => {
+                return <Truck key={index} truck={truck} />;
+              })
+          : filterByCondition.length > 0 &&
+            filterBySize.length === 0 &&
+            inventoryCopy
+              .filter((truck) => filterByCondition.includes(truck.working))
+              .reverse()
+              .map((truck, index) => {
+                return <Truck key={index} truck={truck} />;
+              })}
+        {/* filter inv by condition only */}
+
+        {/* filter/sorting inv by size and condition */}
+        {!reverseOrder
+          ? filterBySize &&
+            filterByCondition &&
+            inventoryCopy
+              .filter(
+                (truck) =>
+                  filterByCondition.includes(truck.working) &&
+                  filterBySize.includes(truck.size)
+              )
+              .sort((a, b) => a[sortBy] - b[sortBy])
+              .map((truck, index) => {
+                return <Truck key={index} truck={truck} />;
+              })
+          : filterBySize &&
+            filterByCondition &&
+            inventoryCopy
+              .filter(
+                (truck) =>
+                  filterByCondition.includes(truck.working) &&
+                  filterBySize.includes(truck.size)
+              )
+              .sort((a, b) => a[sortBy] - b[sortBy])
+              .reverse()
+              .map((truck, index) => {
+                return <Truck key={index} truck={truck} />;
+              })}
+        {/* filter/sorting inv by size and condition */}
+
+        {/* finished displaying inventory */}
       </RightContainer>
     </InventoryContainer>
   );
@@ -195,3 +301,15 @@ const AdWrapper = styled.div`
     }
   }
 `;
+
+{
+  /* 
+   -css inventory sidebar
+        -delete truck of the week when it switches to col
+        -truck year is too big at 375
+        - home button (navbar)
+        -maybe will have to have section for (size + sortBy) and (working + sortby) 
+        -sorry no trucks fit that criteria   
+        -loading state    
+        */
+}

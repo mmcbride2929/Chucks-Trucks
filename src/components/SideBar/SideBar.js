@@ -1,8 +1,66 @@
 import styled from 'styled-components';
-import { useState } from 'react';
 
-const SideBar = () => {
-  const [Sticky, setSticky] = useState(false);
+const SideBar = ({
+  setSortBy,
+  setFilterByCondition,
+  setFilterBySize,
+  filterByCondition,
+  filterBySize,
+  setReverseOrder,
+}) => {
+  // setting filter by size value
+  const handleSizeFilter = (value) => {
+    if (value.target.checked === true) {
+      const sizeArr = filterBySize.concat(value.target.value);
+      setFilterBySize(sizeArr);
+    } else {
+      const sizeArr = [...filterBySize];
+      const index = sizeArr.indexOf(value.target.value);
+      if (index !== -1) {
+        sizeArr.splice(index, 1);
+        setFilterBySize(sizeArr);
+      }
+    }
+  };
+
+  // setting filter by truck condition
+  const handleConditionFilter = (value) => {
+    // if checked, add value to arr, copy, update
+    if (value.target.checked === true) {
+      const conditionArr = filterByCondition.concat(value.target.value);
+      setFilterByCondition(conditionArr);
+    } else {
+      // if unchecked copy arr, check index of value, delete, update
+      const conditionArr = [...filterByCondition];
+      const index = conditionArr.indexOf(value.target.value);
+      if (index !== -1) {
+        conditionArr.splice(index, 1);
+        setFilterByCondition(conditionArr);
+      }
+    }
+  };
+
+  // setting sort by miles, year, price
+  const handleSort = (value) => {
+    setSortBy(value.target.value);
+  };
+
+  // setting reverse to true or false
+  const handleReverse = (value) => {
+    if (value.target.checked === true) {
+      setReverseOrder(true);
+    } else {
+      setReverseOrder(false);
+    }
+  };
+
+  // reseting filter/sorting state to display full inventory
+  const resetSort = () => {
+    setFilterBySize([]);
+    setFilterByCondition([]);
+    setSortBy('');
+    setReverseOrder(false);
+  };
 
   return (
     <SideBarContainer>
@@ -11,34 +69,65 @@ const SideBar = () => {
       <ColWrapper>
         <h4>What size truck are you looking for?</h4>
         <HWrapper>
-          <Input type="radio" value="big" name="size" />
-          <span>Small</span>
-          <Input type="radio" value="bigger" name="size" />
-          <span>Medium</span>
-          <Input type="radio" value="biggest" name="size" />
-          <span>Large</span>
+          <Input
+            type="checkbox"
+            value="Small"
+            name="size"
+            onChange={handleSizeFilter}
+          />
+          <span>Big</span>
+          <Input
+            type="checkbox"
+            value="Medium"
+            name="size"
+            onChange={handleSizeFilter}
+          />
+          <span>Bigger</span>
+          <Input
+            type="checkbox"
+            value="Large"
+            name="size"
+            onChange={handleSizeFilter}
+          />
+          <span>Biggest</span>
         </HWrapper>
       </ColWrapper>
       <ColWrapper>
         <h4>Working Condition:</h4>
         <HWrapper>
-          <Input type="radio" value="yes" name="working-condition" />
+          <Input
+            type="checkbox"
+            value="yes"
+            name="working-condition"
+            onChange={handleConditionFilter}
+          />
           <span>Yes</span>
-          <Input type="radio" value="no" name="working-condition" />
+          <Input
+            type="checkbox"
+            value="no"
+            name="working-condition"
+            onChange={handleConditionFilter}
+          />
           <span>No</span>
-          <Input type="radio" value="debatable" name="working-condition" />
+          <Input
+            type="checkbox"
+            value="debatable"
+            name="working-condition"
+            onChange={handleConditionFilter}
+          />
           <span>Debatable</span>
         </HWrapper>
         <HWrapper>
           <form>
             <label htmlFor="sortBy">Sort By: </label>
-            <select name="sortBy">
-              <option value="priceLow">Price: Low to High</option>
-              <option value="priceHigh">Price: High to Low</option>
-              <option value="YearOld">Year: Old to New</option>
-              <option value="YearNew">Year: New to Old</option>
-              <option value="Mileage">Mileage</option>
+            <select name="sortBy" onChange={handleSort}>
+              <option value="sortPrice">Price: Low to High</option>
+              <option value="year">Year: Old to New</option>
+              <option value="sortMiles">Miles: Low to High</option>
             </select>
+            <Input type="checkbox" value="reverse" onChange={handleReverse} />
+            <span>Reverse Sorting</span>
+            <button onClick={() => resetSort}>Show All</button>
           </form>
         </HWrapper>
       </ColWrapper>
