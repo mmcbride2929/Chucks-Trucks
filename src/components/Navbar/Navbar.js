@@ -1,8 +1,16 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import DehazeIcon from '@material-ui/icons//Dehaze';
+import DehazeIcon from '@material-ui/icons/Dehaze';
+import CloseIcon from '@material-ui/icons/Close';
 
 const Navbar = () => {
+  const [active, setActive] = useState(false);
+
+  const toggleMenu = () => {
+    setActive(!active);
+  };
+
   return (
     <Banner>
       <LeftWrapper>
@@ -14,15 +22,47 @@ const Navbar = () => {
       </LeftWrapper>
       <RightWrapper>
         <ContentWrapper>
-          <DehazeIcon className="toggle active" />
+          {/* toggling the navbar / close button */}
+          {!active ? (
+            <DehazeIcon className="nav-icon" onClick={toggleMenu} />
+          ) : (
+            <>
+              <CloseIcon className="nav-icon" onClick={toggleMenu} />
+              <Modal>
+                <ModalLink exact to="/">
+                  <h3 className="modal-link" onClick={toggleMenu}>
+                    Home
+                  </h3>
+                </ModalLink>
+                <ModalLink to="/inventory">
+                  <h3 className="modal-link" onClick={toggleMenu}>
+                    Inventory
+                  </h3>
+                </ModalLink>
+                <ModalLink to="/chuck">
+                  <h3 className="modal-link" onClick={toggleMenu}>
+                    Chuck
+                  </h3>
+                </ModalLink>
+                <ModalLink to="/finance">
+                  <h3 className="modal-link" onClick={toggleMenu}>
+                    Finance
+                  </h3>
+                </ModalLink>
+              </Modal>
+            </>
+          )}
+          <StyledLink exact to="/">
+            <h3 className="nav-link">Home</h3>
+          </StyledLink>
           <StyledLink to="/inventory">
-            <h3>Inventory</h3>
+            <h3 className="nav-link">Inventory</h3>
           </StyledLink>
           <StyledLink to="/chuck">
-            <h3>Chuck</h3>
+            <h3 className="nav-link">Chuck</h3>
           </StyledLink>
           <StyledLink to="/finance">
-            <h3>Finance</h3>
+            <h3 className="nav-link">Finance</h3>
           </StyledLink>
         </ContentWrapper>
       </RightWrapper>
@@ -40,6 +80,10 @@ const Banner = styled.div`
   display: flex;
   color: #1b1717;
   align-items: center;
+
+  .hide {
+    display: none;
+  }
 `;
 
 const LeftWrapper = styled.div`
@@ -69,7 +113,7 @@ const ContentWrapper = styled.div`
     }
   }
 
-  .toggle {
+  .nav-icon {
     margin-right: 10px;
     font-size: 1.7rem;
     color: #4d4d4d;
@@ -77,6 +121,11 @@ const ContentWrapper = styled.div`
     :hover {
       cursor: pointer;
       color: black;
+    }
+  }
+  @media (max-width: 775px) {
+    h1 {
+      font-size: 1.6rem;
     }
   }
 
@@ -89,6 +138,33 @@ const ContentWrapper = styled.div`
       font-size: 1.3rem;
       padding: 20px 0;
     }
+  }
+`;
+
+const Modal = styled.div`
+  position: absolute;
+  top: 110px;
+  right: 0px;
+  height: 200px;
+  width: 250px;
+  background-color: white;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const ModalLink = styled(Link)`
+  text-decoration: none;
+  cursor: default;
+  z-index: 2;
+
+  .modal-link {
+    width: 50%;
+    background-color: white;
+    color: black;
+    border: 1px solid grey;
+    margin: 5px auto;
   }
 `;
 
@@ -105,14 +181,14 @@ const RightWrapper = styled.div`
   justify-content: flex-end;
   margin-right: 15px;
 
-  @media (min-width: 651px) {
-    .toggle {
+  @media (min-width: 751px) {
+    .nav-icon {
       display: none;
     }
   }
 
-  @media (max-width: 650px) {
-    h3 {
+  @media (max-width: 751px) {
+    .nav-link {
       display: none;
     }
   }

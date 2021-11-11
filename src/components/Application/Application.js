@@ -1,57 +1,88 @@
 import styled from 'styled-components';
+import { useState } from 'react';
+import CloseIcon from '@material-ui/icons/Close';
 
 const Application = () => {
+  const [active, setActive] = useState(false);
+
+  // toggling the modal with the submit button and close icon
+  const toggleMenu = (e) => {
+    if (e.target.value === 'submit') {
+      setActive(true);
+    } else {
+      setActive(false);
+    }
+  };
+
   return (
     <FormContainer>
       <h1>Chuck's Trucks</h1>
       <h2>Credit Application</h2>
-      <form action="submit" className="finance">
-        <HWrapper>
-          <VWrapper>
-            <h3>Applicant Info</h3>
-            <LeftContainer>
-              <label htmlFor="name">Full Name</label>
-              <input type="text" id="name" />
-              <label htmlFor="email">Email</label>
-              <input type="text" id="email" />
-              <label htmlFor="employer">Employer / Company Name</label>
-              <input type="text" id="employer" />
+      {!active ? (
+        <form action="submit" className="finance">
+          <HWrapper>
+            <VWrapper>
+              <h3>Applicant Info</h3>
+              <LeftContainer className="">
+                <label htmlFor="name">Full Name</label>
+                <input type="text" id="name" />
+                <label htmlFor="email">Email</label>
+                <input type="text" id="email" />
+                <label htmlFor="employer">Employer / Company Name</label>
+                <input type="text" id="employer" />
 
-              <label htmlFor="income">Annual Income</label>
-              <div className="dollar">
-                <input type="text" id="income" />
-              </div>
-            </LeftContainer>
-          </VWrapper>
-          <VWrapper>
-            <h3>Loan Details</h3>
-            <RightContainer>
-              <label htmlFor="down-payment">Down-Payment</label>
-              <div className="dollar">
-                <input type="text" id="down-payment" />
-              </div>
-              <label htmlFor="credit">Credit Score</label>
-              <input id="credit" type="text" />
-              <label htmlFor="budget" className="budget">
-                Budget
-              </label>
-              <select name="budget" id="budet" className="option">
-                <option value="5000">$5,000</option>
-                <option value="10000">$10,000</option>
-                <option value="25000">$25,000</option>
-                <option value="50000">$50,000</option>
-              </select>
-              <RadioContainer>
-                <StyledRadio type="radio" value="buy" name="buy" />
-                <span>Buy</span>
-                <StyledRadio type="radio" value="lease" name="lease" />
-                <span>Lease</span>
-              </RadioContainer>
-            </RightContainer>
-          </VWrapper>
-        </HWrapper>
-      </form>
-      <input type="submit" form="finance" className="submit" />
+                <label htmlFor="income">Annual Income</label>
+                <div className="dollar">
+                  <input type="text" id="income" />
+                </div>
+              </LeftContainer>
+            </VWrapper>
+            <VWrapper>
+              <h3>Loan Details</h3>
+              <RightContainer className="">
+                <label htmlFor="down-payment">Down-Payment</label>
+                <div className="dollar">
+                  <input type="text" id="down-payment" />
+                </div>
+                <label htmlFor="credit">Credit Score</label>
+                <input id="credit" type="text" />
+                <label htmlFor="budget" className="budget">
+                  Budget
+                </label>
+                <select name="budget" id="budet" className="option">
+                  <option value="5000">$5,000</option>
+                  <option value="10000">$10,000</option>
+                  <option value="25000">$25,000</option>
+                  <option value="10000">$50,000</option>
+                </select>
+                <RadioContainer>
+                  <StyledRadio type="radio" value="buy" name="buy" />
+                  <span>Buy</span>
+                  <StyledRadio type="radio" value="lease" name="lease" />
+                  <span>Lease</span>
+                </RadioContainer>
+                <button
+                  value="submit"
+                  type="reset"
+                  className="submit"
+                  onClick={toggleMenu}
+                >
+                  submit
+                </button>
+              </RightContainer>
+            </VWrapper>
+          </HWrapper>
+        </form>
+      ) : (
+        <Modal>
+          <CloseIcon onClick={toggleMenu} />
+          <h2>Congratulations!</h2>
+          <h4>You've been approved!</h4>
+          <h5>Loan Details:</h5>
+          <p>Up to $781 with an APR of 40%!</p>
+          <p>Looks like you'll be driving a used truck in no time!</p>
+        </Modal>
+      )}
     </FormContainer>
   );
 };
@@ -109,17 +140,15 @@ const FormContainer = styled.div`
   }
 
   .submit {
-    margin-left: 20px;
     font-size: 1rem;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.9px;
     background-color: #bc0607;
     color: whitesmoke;
-    width: 100px;
-    padding: 10px 0px;
-    margin-top: 50px;
-    margin-bottom: 20px;
+    width: 80px;
+    padding: 8px 0px;
+    margin: 5px auto;
     border-radius: 2px;
     border: none;
 
@@ -139,6 +168,7 @@ const LeftContainer = styled.div`
   padding: 20px 80px;
   background-color: whitesmoke;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
+  margin-bottom: 50px;
 
   label {
     font-weight: 500;
@@ -198,6 +228,7 @@ const RightContainer = styled.div`
   padding: 20px 80px;
   background-color: whitesmoke;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
+  margin-bottom: 50px;
 
   .option {
     width: 90px;
@@ -310,3 +341,39 @@ const StyledRadio = styled.input`
   width: 8%;
   height: 1rem;
 `;
+
+//modal
+const Modal = styled.div`
+  height: 425px;
+  width: 400px;
+  background-color: whitesmoke;
+  margin-bottom: 30px;
+  position: relative;
+  text-align: center;
+
+  .MuiSvgIcon-root {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    :hover {
+      cursor: pointer;
+      color: red;
+    }
+  }
+
+  h2 {
+    margin-top: 45px;
+    margin-bottom: 0px;
+  }
+
+  h4 {
+    color: green;
+    margin-top: 5px;
+    padding: 0px;
+  }
+`;
+
+// onclick.. delete modals hide class + add hide to left and right container
+// modal appears
+// onclick of x add modals hide class and delt container's

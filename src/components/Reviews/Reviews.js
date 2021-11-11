@@ -82,13 +82,12 @@ const ReviewContainer = styled.div`
 
   @media (max-width: 500px) {
     width: 70%;
-    height: aUTO;
+    height: auto;
     flex-direction: column;
   }
 
   @media (max-width: 375px) {
     width: 75%;
-
     padding: 0 20px;
   }
 `;

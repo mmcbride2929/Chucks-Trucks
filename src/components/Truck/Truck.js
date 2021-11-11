@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Truck = ({ truck }) => {
   const { name, year, miles, id, photo, price, description, size } = truck;
@@ -17,7 +18,9 @@ const Truck = ({ truck }) => {
         <h5>{description}</h5>
         <Wrapper>
           <h2>BUY NOW</h2>
-          <h2>FINANCE</h2>
+          <StyledLink to="/finance">
+            <h2>FINANCE</h2>
+          </StyledLink>
         </Wrapper>
       </TopContent>
     </Container>
@@ -30,17 +33,15 @@ const Container = styled.div`
   display: flex;
   margin: 0 30px;
   margin-bottom: 50px;
-  width: 80%;
+  width: 350px;
   box-shadow: rgba(28, 30, 31, 0.3) 2px 2px 4px 0px;
   background-color: white;
   border-radius: 5px;
 
   @media (max-width: 675px) {
-    width: 70%;
   }
 
   @media (max-width: 550px) {
-    width: 80%;
   }
 `;
 
@@ -52,8 +53,8 @@ const TopContent = styled.div`
     display: block;
     margin: 0 auto;
     margin-top: 8px;
-    max-width: 380px;
-    max-height: 305px;
+    max-width: 330px;
+    max-height: 255px;
     width: auto;
     height: auto;
   }
@@ -137,6 +138,10 @@ const TopContent = styled.div`
       font-size: 0.8rem;
     }
   }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `;
 
 const Wrapper = styled.div`

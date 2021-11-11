@@ -1,26 +1,22 @@
 import styled from 'styled-components';
-import showCar from '../../photos/lg-cynder-blocks.jpg';
+import { Link } from 'react-router-dom';
 
-const Ad = () => {
+const Ad = ({ header, image, name, salePrice, price, promo }) => {
   return (
     <AdInfo>
-      <h3>Chuck's Truck of the Week</h3>
-      {/* need onclick to only this car */}
+      <h3>{header}</h3>
       <ImgContainer>
-        <img src={showCar} alt="Ford Truck" />
+        <img src={image} alt="Ford Truck" />
       </ImgContainer>
       <TextContainer>
         <p>
-          Drive this <span>F-150</span> off the lot... <span>TODAY!</span>
+          Drive this <span>{name}</span> off the lot... <span>TODAY!</span>
         </p>
-
-        <h4 className="sale-price">$36,995 </h4>
+        <h4 className="sale-price">{price}</h4>
         <PromoCode>
-          <span className="price">$36,900</span> With promo code:
-          <span className="promo">3WHEELS</span>
+          <span className="price">{salePrice}</span> With promo code:
+          <span className="promo">{promo}</span>
         </PromoCode>
-
-        <h2>BUY NOW</h2>
       </TextContainer>
     </AdInfo>
   );
@@ -29,9 +25,72 @@ const Ad = () => {
 export default Ad;
 
 const AdInfo = styled.div`
+  background-color: white;
+  padding: 15px;
+  margin: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
   h3 {
     text-transform: uppercase;
-    margin: 5px;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+    max-height: 325px;
+    width: auto;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 4px 5px;
+  }
+  @media (max-width: 1150px) {
+    img {
+      max-width: 250px;
+      max-height: 200px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    img {
+      max-width: 225px;
+      max-height: 175px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 1rem;
+    }
+    img {
+      margin-top: 10px;
+      max-width: 300px;
+      max-height: 250px;
+    }
+
+    h4 {
+      margin-top: 10px;
+    }
+  }
+
+  @media (max-width: 550px) {
+    img {
+      max-width: 275px;
+      max-height: 225px;
+    }
+  }
+  @media (max-width: 400px) {
+    .sale-price {
+      display: none;
+    }
+  }
+
+  @media (max-width: 350px) {
+    img {
+      max-width: 250px;
+      max-height: 200px;
+    }
   }
 `;
 
@@ -55,25 +114,6 @@ const TextContainer = styled.div`
   span {
     font-weight: 700;
     font-size: 1.05rem;
-  }
-
-  h2 {
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 0.4px;
-    background-color: #bc0607;
-    color: whitesmoke;
-    width: 100px;
-    padding: 6px 0px;
-    margin: 0px auto;
-    margin-top: 15px;
-    border-radius: 2px;
-
-    :hover {
-      cursor: pointer;
-      background-color: #1b1717;
-      color: whitesmoke;
-    }
   }
 `;
 

@@ -25,7 +25,6 @@ export default FinanaceHeader;
 const Header = styled.header`
   color: white;
   width: 100%;
-  position: relative;
   background: url(${hero}) no-repeat center center/cover;
   padding: 5px 30px;
   margin: 0 auto;
@@ -49,16 +48,18 @@ const Header = styled.header`
     font-weight: 700;
     letter-spacing: 0.3px;
     margin: 2px;
-    margin-top: 5px;
+    margin-top: 25px;
     text-transform: uppercase;
   }
 
   p {
-    padding: 0 200px;
     margin: 5px;
     font-weight: 500;
   }
 
+  .description {
+    padding: 0 100px;
+  }
   @media (max-width: 1100px) {
     p {
       padding: 0 100px;
