@@ -8,7 +8,7 @@ const Truck = ({ truck }) => {
   return (
     <Container>
       <TopContent>
-        <img src={require(`../../photos/${photo}`).default} />
+        <img alt="" src={require(`../../photos/${photo}`).default} />
         <Wrapper>
           <h4 className="year">{year} </h4>
           <h3>{name} </h3>

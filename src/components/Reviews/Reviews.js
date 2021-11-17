@@ -8,7 +8,7 @@ const Reviews = () => {
     <Section>
       <ReviewContainer>
         <AvatarWrapper>
-          <Avatar src={manAvi}></Avatar>
+          <Avatar alt="" src={manAvi}></Avatar>
           <h4>Josh Jenkins</h4>
         </AvatarWrapper>
         <ReviewWrapper>
@@ -30,7 +30,7 @@ const Reviews = () => {
       </ReviewContainer>
       <ReviewContainer>
         <AvatarWrapper>
-          <Avatar src={girlAvi}></Avatar>
+          <Avatar alt="" src={girlAvi}></Avatar>
           <h4>Tara Thomas</h4>
         </AvatarWrapper>
         <ReviewWrapper>
