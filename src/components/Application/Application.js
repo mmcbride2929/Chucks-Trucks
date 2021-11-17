@@ -1,17 +1,27 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import CloseIcon from '@material-ui/icons/Close';
+import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 
 const Application = () => {
+  // toggling whether the loan modal is active or not
   const [active, setActive] = useState(false);
+
+  // setting whether or not the loan results are loading
+  const [loading, setLoading] = useState(false);
 
   // toggling the modal with the submit button and close icon
   const toggleMenu = (e) => {
-    if (e.target.value === 'submit') {
-      setActive(true);
-    } else {
-      setActive(false);
-    }
+    e.preventDefault();
+    setActive(!active);
+  };
+
+  // giving loading time for loan to be 'approved'
+  const setLoad = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 800);
   };
 
   return (
@@ -19,33 +29,33 @@ const Application = () => {
       <h1>Chuck's Trucks</h1>
       <h2>Credit Application</h2>
       {!active ? (
-        <form action="submit" className="finance">
+        <form action="submit" className="finance" onSubmit={toggleMenu}>
           <HWrapper>
             <VWrapper>
               <h3>Applicant Info</h3>
-              <LeftContainer className="">
+              <LeftContainer>
                 <label htmlFor="name">Full Name</label>
-                <input type="text" id="name" />
+                <input type="text" id="name" required />
                 <label htmlFor="email">Email</label>
-                <input type="text" id="email" />
+                <input type="text" id="email" required />
                 <label htmlFor="employer">Employer / Company Name</label>
-                <input type="text" id="employer" />
+                <input type="text" id="employer" required />
 
                 <label htmlFor="income">Annual Income</label>
                 <div className="dollar">
-                  <input type="text" id="income" />
+                  <input type="text" id="income" required />
                 </div>
               </LeftContainer>
             </VWrapper>
             <VWrapper>
               <h3>Loan Details</h3>
-              <RightContainer className="">
+              <RightContainer>
                 <label htmlFor="down-payment">Down-Payment</label>
                 <div className="dollar">
-                  <input type="text" id="down-payment" />
+                  <input type="text" id="down-payment" required />
                 </div>
                 <label htmlFor="credit">Credit Score</label>
-                <input id="credit" type="text" />
+                <input id="credit" type="text" required />
                 <label htmlFor="budget" className="budget">
                   Budget
                 </label>
@@ -56,31 +66,41 @@ const Application = () => {
                   <option value="10000">$50,000</option>
                 </select>
                 <RadioContainer>
-                  <StyledRadio type="radio" value="buy" name="buy" />
+                  <StyledRadio type="radio" value="buy" name="radio" required />
                   <span>Buy</span>
-                  <StyledRadio type="radio" value="lease" name="lease" />
+                  <StyledRadio
+                    type="radio"
+                    value="lease"
+                    name="radio"
+                    required
+                  />
                   <span>Lease</span>
                 </RadioContainer>
-                <button
-                  value="submit"
-                  type="reset"
-                  className="submit"
-                  onClick={toggleMenu}
-                >
-                  submit
-                </button>
+                <input type="submit" className="submit" onClick={setLoad} />
               </RightContainer>
             </VWrapper>
           </HWrapper>
         </form>
+      ) : loading ? (
+        <LoadingModal className="loading-modal">
+          <h2>One Moment..</h2>
+          <h3>Finalizing Your Approval Letter </h3>
+        </LoadingModal>
       ) : (
         <Modal>
-          <CloseIcon onClick={toggleMenu} />
+          <CloseIcon className="close" onClick={toggleMenu} />
           <h2>Congratulations!</h2>
           <h4>You've been approved!</h4>
           <h5>Loan Details:</h5>
-          <p>Up to $781 with an APR of 40%!</p>
-          <p>Looks like you'll be driving a used truck in no time!</p>
+          <p>Up to $2781 with an APR of 40%!</p>
+          <h5 className="red">No down payment required!</h5>
+          <LocalAtmIcon className="money" />
+          <p className="lorem">
+            Chuck's loans are better than gold! Our budget friendly loans have a
+            great program where we allow you to pay off your truck over the next
+            12 years! Hopefully your truck out-lasts the loan! I guess we will
+            see!
+          </p>
         </Modal>
       )}
     </FormContainer>
@@ -288,6 +308,7 @@ const RadioContainer = styled.div`
   display: flex;
   align-items: flex-start;
   width: 200px;
+  margin: 0 auto;
   margin-top: 3px;
 
   span {
@@ -315,15 +336,6 @@ const VWrapper = styled.div`
     color: whitesmoke;
     letter-spacing: 1px;
     margin-top: 10px;
-
-    @media (max-width: 425px) {
-      width: 300px;
-      margin: 0 auto;
-    }
-
-    @media (max-width: 375px) {
-      width: 255px;
-    }
   }
 `;
 
@@ -351,29 +363,79 @@ const Modal = styled.div`
   position: relative;
   text-align: center;
 
-  .MuiSvgIcon-root {
+  .close {
     position: absolute;
     top: 5px;
     right: 5px;
 
     :hover {
       cursor: pointer;
-      color: red;
+      color: #bc0607;
     }
   }
 
   h2 {
-    margin-top: 45px;
+    margin-top: 50px;
     margin-bottom: 0px;
   }
 
   h4 {
-    color: green;
     margin-top: 5px;
     padding: 0px;
   }
+
+  h5 {
+    margin-top: 25px;
+    margin-bottom: 5px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    padding: 0 50px;
+    margin: 5px;
+  }
+
+  .red {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #bc0607;
+  }
+
+  .money {
+    margin-top: 10px;
+    vertical-align: text-bottom;
+    font-size: 4rem;
+    color: #066106;
+  }
+
+  .lorem {
+    font-weight: 500;
+    margin: 20px 0;
+  }
+
+  @media (max-width: 500px) {
+    width: 350px;
+  }
+
+  @media (max-width: 350px) {
+    width: 280px;
+    height: 500px;
+  }
 `;
 
-// onclick.. delete modals hide class + add hide to left and right container
-// modal appears
-// onclick of x add modals hide class and delt container's
+// loading modal
+
+const LoadingModal = styled.div`
+  height: 425px;
+  width: 400px;
+  background-color: whitesmoke;
+  margin-bottom: 30px;
+  position: relative;
+  text-align: center;
+
+  h2 {
+    margin-top: 100px;
+  }
+  h3 {
+  }
+`;

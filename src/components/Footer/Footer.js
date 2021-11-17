@@ -38,10 +38,6 @@ const FooterContainer = styled.div`
     color: #bc0607;
     text-decoration: underline;
   }
-
-  @media (max-width: 768px) {
-    margin-bottom: 10px;
-  }
 `;
 
 const NavWrapper = styled.div``;

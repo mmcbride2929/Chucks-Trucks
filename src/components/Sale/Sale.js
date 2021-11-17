@@ -22,11 +22,14 @@ export default Sale;
 
 const Header = styled.header`
   width: 100%;
+  height: 285px;
   background: url(${hero}) no-repeat center center/cover;
   color: whitesmoke;
   text-align: center;
   box-shadow: inset 100px 80px 200px #000000, inset -100px -80px 200px #000000;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
 
   h2 {
     font-size: 1.8rem;
@@ -48,27 +51,21 @@ const Header = styled.header`
   p {
     font-size: 10px;
   }
-  /* 
-  @media (max-width: 1050px) {
-    height: 40vh;
-  }
 
   @media (max-width: 768px) {
-    height: 34vh;
-
     h1 {
       font-size: 1.9rem;
     }
 
     h2 {
       font-size: 1.7rem;
-      margin-top: 25px;
     }
 
     h3 {
       font-size: 0.9rem;
     }
   }
+
   @media (max-width: 500px) {
     h1 {
       font-size: 1.3rem;
@@ -90,27 +87,24 @@ const Header = styled.header`
       margin-bottom: 5px;
     }
   }
-
-  @media (min-height: 400px) {
-    height: 40vh;
-  } */
 `;
 
 const Button = styled(Link)`
   text-decoration: none;
-
+  max-width: 100px;
+  margin: 20px auto;
   .btn {
+    max-width: 100px;
+    z-index: 4;
     font-size: 1rem;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.4px;
     background-color: #bc0607;
     color: whitesmoke;
-    text-align: center;
-    width: 110px;
     padding: 8px 4px;
     border-radius: 2px;
-    margin: 20px auto;
+    margin: 0px auto;
 
     :hover {
       cursor: pointer;

@@ -21,7 +21,7 @@ const Inventory = () => {
     });
   }, []);
 
-  // cloning our inv arr so that we do not mutate it
+  // cloning our inv arr
   const inventoryCopy = [...inventory];
 
   return (
@@ -40,11 +40,11 @@ const Inventory = () => {
         </InvWrapper>
       </LeftContainer>
       <RightContainer>
-        {/* displaying inventory */}
-
-        {/* Display load screen if content isn't displayed yet */}
+        {/* Display load screen if content isn't fetched yet */}
         {loading && <h1>GETTING TRUCKS!</h1>}
-        {/* Display load screen if content isn't displayed yet */}
+        {/* Display load screen if content isn't fetched yet */}
+
+        {/* displaying inventory */}
 
         {/* default - display full inventory */}
         {!reverseOrder // if reverse is false, display default inv
@@ -156,6 +156,13 @@ const InventoryContainer = styled.div`
   }
 `;
 
+// sort by & location card
+const LeftContainer = styled.div`
+  flex: 0.4;
+  flex-direction: column;
+`;
+
+// trucks being displayed
 const RightContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -164,43 +171,20 @@ const RightContainer = styled.div`
   flex: 0.6;
 `;
 
-const LeftContainer = styled.div`
-  flex: 0.4;
-  flex-direction: column;
-`;
-
 const InvWrapper = styled.div`
-  position: sticky;
-  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  // try to resize image and card to one size.. that way if it gets too small
-  // we can just go to column  rather than resize it a bunch.
-  /* @media (max-width: 1100px) {
-    width: 90%;
-    height: 350px;
-    padding: 20px 30px;
-
+  @media (min-width: 700px) {
+    position: sticky;
+    top: 0;
+    align-items: flex-start;
   }
 
-  @media (max-width: 768px) {
-    width: 100%;
-    padding: 20px 40px;
-  }
-
-  @media (max-width: 675px) {
-    width: 70%;
-    padding: 20px 80px;
-    margin: 0 auto;
-    margin-bottom: 50px;
-  }
-
-  @media (max-width: 550px) {
-    height: 320px;
-    width: 80%;
-    margin: 0 auto;
-    margin-bottom: 50px;
-    display: flex;
+  @media (max-width: 700px) {
+    position: relative;
     justify-content: center;
-    padding: 30px 0px;
-  } */
+  }
 `;

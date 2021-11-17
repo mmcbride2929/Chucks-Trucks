@@ -56,9 +56,9 @@ const TestContainer = styled.div`
 
 const ContentContainer = styled.div`
   width: 80%;
-  height: 600px;
+  height: auto;
   background-color: whitesmoke;
-  margin: 100px auto;
+  margin: 40px auto;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
   border-radius: 4px;
 
@@ -70,20 +70,8 @@ const ContentContainer = styled.div`
     @media (max-width: 850px) {
       padding: 0;
       padding-top: 20px;
+      margin: 15px auto;
     }
-  }
-
-  @media (max-width: 950px) {
-    margin: 40px auto;
-    height: auto;
-  }
-
-  @media (max-width: 850px) {
-    width: 70%;
-  }
-
-  @media (max-width: 550px) {
-    width: 85%;
   }
 `;
 
@@ -213,42 +201,18 @@ const Row = styled.div`
 const RightContainer = styled.div`
   padding: 20px 40px;
   flex: 0.55;
+  display: flex;
+  flex-direction: column;
 
   img {
-    display: block;
-    margin: 0px auto;
-    max-width: 330px;
-    max-height: 355px;
-    width: auto;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+    min-width: 150px;
     height: auto;
-    border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
-
-    @media (max-width: 950px) {
-      max-width: 280px;
-      max-height: 305px;
-    }
-
-    @media (max-width: 850px) {
-      max-width: 330px;
-      max-height: 355px;
-    }
-
-    @media (max-width: 575px) {
-      max-width: 275px;
-      max-height: 300px;
-    }
-
-    @media (max-width: 500px) {
-      max-width: 225px;
-      max-height: 250px;
-    }
-
-    @media (max-width: 374px) {
-      max-width: 200px;
-      max-height: 225px;
-    }
   }
   p {
     text-align: center;

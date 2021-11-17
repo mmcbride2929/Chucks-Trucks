@@ -25,6 +25,7 @@ export default FinanaceHeader;
 const Header = styled.header`
   color: white;
   width: 100%;
+  height: 285px;
   background: url(${hero}) no-repeat center center/cover;
   padding: 5px 30px;
   margin: 0 auto;
@@ -33,14 +34,14 @@ const Header = styled.header`
   letter-spacing: 0.5px;
 
   h1 {
-    font-size: 2.6rem;
-    padding: 10px;
+    font-size: 3rem;
+    padding: 15px;
     text-transform: uppercase;
   }
 
   h4 {
     font-size: 1.1rem;
-    margin-top: 35px;
+    margin-top: 30px;
   }
 
   h5 {
@@ -54,49 +55,28 @@ const Header = styled.header`
 
   p {
     margin: 5px;
+    margin-top: 50px;
     font-weight: 500;
   }
 
   .description {
-    padding: 0 100px;
-  }
-  @media (max-width: 1100px) {
-    p {
-      padding: 0 100px;
-    }
+    margin: 5px auto;
+    width: 350px;
   }
 
-  @media (max-width: 950px) {
-    p {
-      padding: 0 50px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    p {
-      font-size: 0.9rem;
-      padding: 0 30px;
-    }
-  }
-
-  @media (max-width: 500px) {
-    p {
-      font-size: 0.8rem;
-    }
-  }
-
-  @media (max-width: 400px) {
+  @media (max-width: 450px) {
     h4 {
-      margin-top: 10px;
-      font-size: 1rem;
+      margin-top: 5px;
+    }
+    h5 {
+      padding: 15px;
+      margin-top: 20px;
     }
 
-    p {
-      display: none;
-    }
-
-    h1 {
-      font-size: 1.8rem;
+    .description {
+      margin-top: 25px;
+      font-size: 0.85rem;
+      width: 270px;
     }
   }
 `;

@@ -167,7 +167,7 @@ const ReviewWrapper = styled.div`
     }
 
     h6 {
-      margin-top: 25px;
+      margin-bottom: 0px;
     }
   }
 

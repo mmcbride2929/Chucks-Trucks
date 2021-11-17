@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -5,8 +6,10 @@ import DehazeIcon from '@material-ui/icons/Dehaze';
 import CloseIcon from '@material-ui/icons/Close';
 
 const Navbar = () => {
+  //setting state for our navbar
   const [active, setActive] = useState(false);
 
+  // toggle navbar active
   const toggleMenu = () => {
     setActive(!active);
   };
@@ -16,7 +19,7 @@ const Navbar = () => {
       <LeftWrapper>
         <ContentWrapper>
           <StyledLink exact to="/">
-            <h1>Chuck's Trucks!</h1>
+            <h1 onClick={() => setActive(false)}>Chuck's Trucks!</h1>
           </StyledLink>
         </ContentWrapper>
       </LeftWrapper>
@@ -53,16 +56,24 @@ const Navbar = () => {
             </>
           )}
           <StyledLink exact to="/">
-            <h3 className="nav-link">Home</h3>
+            <h3 onClick={() => setActive(false)} className="nav-link">
+              Home
+            </h3>
           </StyledLink>
           <StyledLink to="/inventory">
-            <h3 className="nav-link">Inventory</h3>
+            <h3 onClick={() => setActive(false)} className="nav-link">
+              Inventory
+            </h3>
           </StyledLink>
           <StyledLink to="/chuck">
-            <h3 className="nav-link">Chuck</h3>
+            <h3 onClick={() => setActive(false)} className="nav-link">
+              Chuck
+            </h3>
           </StyledLink>
           <StyledLink to="/finance">
-            <h3 className="nav-link">Finance</h3>
+            <h3 onClick={() => setActive(false)} className="nav-link">
+              Finance
+            </h3>
           </StyledLink>
         </ContentWrapper>
       </RightWrapper>
@@ -123,21 +134,13 @@ const ContentWrapper = styled.div`
       color: black;
     }
   }
-  @media (max-width: 775px) {
-    h1 {
-      font-size: 1.6rem;
-    }
-  }
 
   @media (max-width: 650px) {
     font-size: 0.75rem;
   }
 
-  @media (max-width: 500px) {
-    h1 {
-      font-size: 1.3rem;
-      padding: 20px 0;
-    }
+  @media (max-width: 350px) {
+    font-size: 0.7rem;
   }
 `;
 
@@ -145,22 +148,27 @@ const Modal = styled.div`
   position: absolute;
   top: 110px;
   right: 0px;
-  height: 200px;
-  width: 250px;
+  height: 300px;
+  width: 100%;
   background-color: white;
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 400px) {
+    height: 285px;
+  }
 `;
 
 const ModalLink = styled(Link)`
   text-decoration: none;
   cursor: default;
   z-index: 2;
+  margin: 0 auto;
 
   .modal-link {
-    width: 50%;
+    width: 150px;
     background-color: white;
     color: black;
     border: 1px solid grey;
@@ -181,13 +189,13 @@ const RightWrapper = styled.div`
   justify-content: flex-end;
   margin-right: 15px;
 
-  @media (min-width: 751px) {
+  @media (min-width: 801px) {
     .nav-icon {
       display: none;
     }
   }
 
-  @media (max-width: 751px) {
+  @media (max-width: 800px) {
     .nav-link {
       display: none;
     }

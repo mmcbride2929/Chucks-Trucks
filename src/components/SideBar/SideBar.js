@@ -13,9 +13,11 @@ const SideBar = ({
   // setting filter by size value
   const handleSizeFilter = (value) => {
     if (value.target.checked === true) {
+      // add value to filterBySize state and set state
       const sizeArr = filterBySize.concat(value.target.value);
       setFilterBySize(sizeArr);
     } else {
+      // cloning array and deleting value
       const sizeArr = [...filterBySize];
       const index = sizeArr.indexOf(value.target.value);
       if (index !== -1) {
@@ -32,7 +34,7 @@ const SideBar = ({
       const conditionArr = filterByCondition.concat(value.target.value);
       setFilterByCondition(conditionArr);
     } else {
-      // if unchecked copy arr, check index of value, delete, update
+      // if unchecked copy arr, check index of value, delete
       const conditionArr = [...filterByCondition];
       const index = conditionArr.indexOf(value.target.value);
       if (index !== -1) {
@@ -166,7 +168,7 @@ export default SideBar;
 
 const SideBarContainer = styled.div``;
 
-// Sort By Form
+// 'sort by' top form
 const SortByContainer = styled.div`
   width: 300px;
   height: 335px;
@@ -189,6 +191,11 @@ const SortByContainer = styled.div`
     letter-spacing: 0.6px;
     font-weight: 700;
   }
+
+  @media (max-width: 350px) {
+    width: 275px;
+    height: 345px;
+  }
 `;
 
 const ColWrapper = styled.div`
@@ -208,6 +215,7 @@ const HWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding: 1px;
 
   span {
     margin-right: 10px;
@@ -225,6 +233,7 @@ const HWrapper = styled.div`
     label {
       font-weight: 700;
     }
+
     select {
       outline: none;
       margin: 0 8px;
@@ -268,10 +277,11 @@ const Input = styled.input`
   margin: 5px;
 `;
 
-// Location Section
+// 'location' bottom form
 const ContactWrapper = styled.div`
   width: 300px;
   height: 335px;
+  margin-bottom: 40px;
   background-color: white;
   padding: 10px 20px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
@@ -333,5 +343,10 @@ const ContactWrapper = styled.div`
     font-size: 0.6rem;
     text-transform: uppercase;
     font-weight: 700;
+  }
+
+  @media (max-width: 350px) {
+    width: 275px;
+    height: 345px;
   }
 `;

@@ -52,7 +52,6 @@ const LeftWrapper = styled.div`
   margin-left: 15px;
 
   @media (max-width: 500px) {
-    margin-left: 0px;
     flex: 0.6;
   }
 
@@ -78,14 +77,7 @@ const ContentWrapper = styled.div`
   @media (max-width: 800px) {
     .phone-number,
     .address {
-      font-size: 0.9rem;
-    }
-  }
-
-  @media (max-width: 675px) {
-    .address,
-    .phone-number {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
     }
   }
 
@@ -99,9 +91,15 @@ const ContentWrapper = styled.div`
     }
   }
 
-  @media (max-width: 350px) {
+  @media (max-width: 500px) {
     .phone-number {
       font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 350px) {
+    .phone-number {
+      font-size: 0.9rem;
     }
   }
 `;
