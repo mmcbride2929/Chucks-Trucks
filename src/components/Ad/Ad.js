@@ -4,7 +4,7 @@ const Ad = ({ image, name, salePrice, promo }) => {
   return (
     <AdContainer>
       <ImgContainer>
-        <img alt="" src={image} alt="Ford Truck" />
+        <img src={image} alt="" />
       </ImgContainer>
       <TextContainer>
         <p>
