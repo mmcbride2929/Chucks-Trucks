@@ -34,6 +34,7 @@ const Container = styled.div`
   display: flex;
   margin-bottom: 50px;
   width: 350px;
+
   box-shadow: rgba(28, 30, 31, 0.3) 2px 2px 4px 0px;
   background-color: white;
   border-radius: 5px;

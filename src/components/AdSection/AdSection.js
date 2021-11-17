@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Ad from '../Ad/Ad';
-import f150 from '../../photos/lg-cynder-blocks.jpg';
+import f150 from '../../photos/lg-blocks.jpg';
 import blazer from '../../photos/chevy-blazer.jpg';
 
 const AdSection = () => {
