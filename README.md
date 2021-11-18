@@ -1,4 +1,4 @@
-![Banner](https://github.com/mmcbride2929/Chucks-Trucks/src/photos/CT_Banner.png)
+![Banner](https://github.com/mmcbride2929/Chucks-Trucks/blob/master/src/photos/CT_Banner.png)
 
 ## Chuck's Trucks ![GitHub last commit]
 A spoof truck dealership website built in React. 
