@@ -27,7 +27,7 @@ Clone the git repo & install dependencies from npm:
 * ```browser=chrome npm start```
 
 ## Whats Next?
-* Individual page for each car + listed car details (color, doors, tire size)
-* Zoom into tricl photo on hover.
-* Added inventory to the Firebase db.
+* Individual page for each truck + truck details listed (color, doors, tire size)
+* Zoom into truck photo on hover.
+* Add more inventory to the Firebase db.
 * Sort inventory by user entered budget.
