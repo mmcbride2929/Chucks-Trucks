@@ -1,6 +1,6 @@
-![Banner](https://github.com/mmcbride2929/Night-Note/blob/master/Banner/%F0%9F%8C%99_NIGHT-NOTE__%F0%9F%8C%A0.png)
+![Banner](https://github.com/mmcbride2929/Chucks-Trucks/src/photos/CT_Banner.png)
 
-## Chuck's Trucks ![GitHub last commit](https://img.shields.io/github/last-commit/mmcbride2929/night-note)
+## Chuck's Trucks ![GitHub last commit]
 A spoof truck dealership website built in React. 
 
 ## [View Demo](https://focused-wright-9297ba.netlify.app/)
