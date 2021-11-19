@@ -177,13 +177,13 @@ const InvWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media (min-width: 700px) {
+  @media (min-width: 675px) {
     position: sticky;
     top: 0;
     align-items: flex-start;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 675px) {
     position: relative;
     justify-content: center;
   }

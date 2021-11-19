@@ -76,6 +76,7 @@ const Application = () => {
                   />
                   <span>Lease</span>
                 </RadioContainer>
+
                 <input type="submit" className="submit" onClick={setLoad} />
               </RightContainer>
             </VWrapper>
@@ -157,6 +158,10 @@ const FormContainer = styled.div`
     #income {
       width: 150px;
     }
+
+    input[type='search'] {
+      -webkit-appearance: none;
+    }
   }
 
   .submit {
@@ -222,7 +227,7 @@ const LeftContainer = styled.div`
     margin-bottom: 25px;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 500px) {
     width: 300px;
     padding: 20px 50px;
     margin: 0 auto;
@@ -287,7 +292,7 @@ const RightContainer = styled.div`
     width: 400px;
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 500px) {
     width: 300px;
     padding: 20px 50px;
   }

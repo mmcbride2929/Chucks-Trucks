@@ -40,6 +40,7 @@ const Container = styled.div`
   border-radius: 5px;
 
   @media (max-width: 675px) {
+    width: 300px;
   }
 
   @media (max-width: 350px) {

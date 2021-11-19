@@ -158,7 +158,6 @@ const SideBar = ({
           We've got some awesome new inventory that hasn't been added to our
           site yet! Be the first to take a test drive.
         </p>
-        <p className="fine-print">No Driver's License Needed!</p>
       </ContactWrapper>
     </SideBarContainer>
   );
@@ -171,7 +170,9 @@ const SideBarContainer = styled.div``;
 // 'sort by' top form
 const SortByContainer = styled.div`
   width: 300px;
-  height: 335px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
   background-color: white;
   padding: 5px 20px;
   margin-bottom: 40px;
@@ -194,14 +195,12 @@ const SortByContainer = styled.div`
 
   @media (max-width: 350px) {
     width: 275px;
-    height: 345px;
   }
 `;
 
 const ColWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 5px;
 
   h4 {
     text-align: center;
@@ -228,7 +227,7 @@ const HWrapper = styled.div`
   }
 
   form {
-    margin: 20px 0;
+    margin: 10px 0;
 
     label {
       font-weight: 700;
@@ -280,7 +279,10 @@ const Input = styled.input`
 // 'location' bottom form
 const ContactWrapper = styled.div`
   width: 300px;
-  height: 335px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 40px;
   background-color: white;
   padding: 10px 20px;
@@ -336,13 +338,6 @@ const ContactWrapper = styled.div`
     padding: 5px;
     margin-top: 20px;
     font-weight: 500;
-  }
-
-  .fine-print {
-    margin-top: 10px;
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    font-weight: 700;
   }
 
   @media (max-width: 350px) {

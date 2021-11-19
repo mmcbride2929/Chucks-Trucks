@@ -68,23 +68,29 @@ const Header = styled.header`
 
   @media (max-width: 500px) {
     h1 {
-      font-size: 1.3rem;
+      font-size: 1.9rem;
     }
 
     h2 {
-      font-size: 1.4rem;
+      font-size: 1.7rem;
+    }
+
+    h3 {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 350px) {
+    h1 {
+      font-size: 1.7rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
     }
 
     h3 {
       font-size: 0.7rem;
-    }
-
-    h4 {
-      font-size: 0.7rem;
-    }
-
-    h6 {
-      margin-bottom: 5px;
     }
   }
 `;
@@ -110,6 +116,14 @@ const Button = styled(Link)`
       cursor: pointer;
       color: #1b1717;
       background-color: whitesmoke;
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 17px;
+    }
+
+    @media (max-width: 350px) {
+      margin-top: 25px;
     }
   }
 `;

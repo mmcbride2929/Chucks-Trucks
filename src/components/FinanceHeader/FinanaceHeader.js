@@ -74,9 +74,9 @@ const Header = styled.header`
     }
 
     .description {
-      margin-top: 25px;
+      margin-top: 10px;
       font-size: 0.85rem;
-      width: 270px;
+      width: 250px;
     }
   }
 `;
